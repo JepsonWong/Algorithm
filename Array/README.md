@@ -100,11 +100,19 @@ https://blog.csdn.net/yzl20092856/article/details/39995085 讲的明白，非递
 sub_array.cpp
 ```
 
-## 求一个集合的所有子集问题
+## 集合问题
+
+### 求一个集合的所有子集问题
 
 已知N个大于0的整数构成一个集合，即{1，2，3，……，N}，求其所有的非空且元素不相邻的子集，计算所有子集的乘积的平方的和。
 
 https://blog.csdn.net/a568283992/article/details/53525253
+
+### 求交集、并集、差集
+
+利用set。set\_intersection、set\_union、set\_difference函数。
+
+https://blog.csdn.net/zzh1301051836/article/details/48808141
 
 ## 求一个数组的最长递增子序列
 
@@ -115,3 +123,11 @@ https://blog.csdn.net/qq\_16836151/article/details/51244988
 方法2: 动态规划。设数组A，L[j]表示以Aj结尾的最大子序列长度。则，L[j] = max(L[i]) + 1，where i < j && a[i] < a[j]。时间复杂度为O(n^2)。
 
 方法3: 动态规划。O(NlogN)。
+
+## 删除排序数组的重复项
+
+remove\_duplication\_in\_sort\_array.cpp
+
+## 找n个数的全排列和所有子集
+
+https://blog.csdn.net/liyongqi\_/article/details/70472225
