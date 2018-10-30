@@ -41,6 +41,48 @@ void printReverse_nonrecursion(ListNode *head) {
 	}
 }
 
+/*
+反转单链表-递归
+*/
+ListNode* ReverseList1(ListNode *head, ListNode **result) {
+	//if (head == NULL || head->next == NULL) {
+	//	return head;
+	//}
+	// 下面result的更新很有必要，是反转之后的头节点
+	if (head == NULL) {
+		*result = NULL;
+		return head;
+	}
+	if (head->next == NULL) {
+		*result = head;
+		return head;		
+	}
+	ListNode *arr = ReverseList1(head->next, result);
+	arr->next = head;
+	head->next = NULL;
+	return head; //return arr; 返回head，因为要返回链表最末尾，从而让它指向链表最后一个元素
+}
+
+/*
+反转单链表-非递归
+*/
+ListNode* ReverseList2(ListNode *head) {
+	if (head == NULL || head->next == NULL) {
+		return head;
+	}
+	ListNode* p = head;
+	ListNode* q = head->next;
+	ListNode* temp;
+	head->next = NULL; //此句很重要
+	while (q != NULL) {
+		temp = q->next;
+		q->next = p;
+		p = q;
+		q = temp;
+	}
+	return p;
+}
+
 int main() {
 	ListNode *pHead = NULL;
 	int n = 10;
@@ -62,5 +104,14 @@ int main() {
 	printReverse(pHead);
 	cout << "print reverse non-recursion:" << endl;
 	printReverse_nonrecursion(pHead);
+
+	cout << "reverse_list1" << endl;
+	ListNode* pHead1 = NULL;
+	ReverseList1(pHead, &pHead1);
+	print(pHead1);
+	cout << "reverse_list2" << endl;
+	//ListNode* pHead2 = ReverseList2(pHead);
+	//print(pHead2);
+	
 	return 0;
 }

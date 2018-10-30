@@ -1,3 +1,28 @@
+## 史上最全最丰富的“最长公共子序列”、“最长公共子串”问题的解法与思路
+
+https://blog.csdn.net/wangdd\_199326/article/details/76464333
+
+## 最长公共子序列（求最长公共子序列长度并统计最长公共子序列的个数）
+
+重点不止求最长公共子序列长度，还要统计最长公共子序列的个数。
+
+https://www.cnblogs.com/huashanqingzhu/p/7435750.html
+
+https://blog.csdn.net/moep0/article/details/52760974
+
+https://blog.csdn.net/litble/article/details/67640655
+
+```
+g[2][maxn] 统计子序列个数
+g[cur][j] = 0;
+
+if(f[cur][j] == f[cur^1][j]) g[cur][j] += g[cur^1][j];  
+if(f[cur][j] == f[cur][j-1]) g[cur][j] += g[cur][j-1];  
+if(f[cur][j] == f[cur^1][j] && f[cur][j] == f[cur][j-1] && f[cur^1][j-1] == f[cur][j]) 
+	g[cur][j] -= g[cur^1][j-1];
+if(A[i] == B[j] && f[cur][j] == f[cur^1][j-1] + 1) g[cur][j] += g[cur^1][j-1]; 
+```
+
 ## 求解两个字符串的最长公共子序列
 
 动态规划（最优子结构+重叠子问题）
@@ -54,3 +79,13 @@ map<char, int>
 * 如果当前字符出现过并且该字符上一次出现时的index大于目前子串的初始index，那么将目前子串的初始index置为该字符上一次出现时的index。注意这个子串不一定是最大长度的子串，而是程序运行过程中当前的不重复子串。**同时也封信map该key对应的value**。
 * 如果当前的index与startIndex（目前子串的初始index）的差值大于maxLen（记录的最长不重复子串的长度），那么更新maxLen。注意，因为我们要输出这个不重复子串，所以我们在这时候（maxLen改变时）需要记录startIndex。
 * 记录当前字符的index。
+
+## 可以输入多组字符串，输入a-z代表0-25，例如.输入ab，输出1. ab=0\*26^1+1\*26^0
+
+字符串解析 编程
+
+https://blog.csdn.net/qingcunsuiyue/article/details/69218715
+
+```
+str1.cpp
+```
